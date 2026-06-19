@@ -1,0 +1,283 @@
+{
+  "source": "https://www.creativo-code.com/",
+  "fetched_at": "2026-05-22",
+  "base_path": "/Users/mickael/ai-dev-team/projects/creativo-clone/public/assets",
+  "totals": {
+    "files": 34,
+    "total_bytes": 16135625,
+    "total_human": "15.4 MB",
+    "by_category": {
+      "fonts": 4,
+      "icons": 15,
+      "meta": 3,
+      "misc": 1,
+      "prismic": 5,
+      "testimonials": 6
+    }
+  },
+  "files": [
+    {
+      "path": "fonts/2c742133978d0b0d-s.p.woff",
+      "size": 45772,
+      "type": "font/woff",
+      "origin": "/_next/static/media/2c742133978d0b0d-s.p.woff",
+      "description": "Next.js self-hosted webfont (WOFF) — body / UI typeface"
+    },
+    {
+      "path": "fonts/77a1779342baf612-s.p.woff",
+      "size": 52812,
+      "type": "font/woff",
+      "origin": "/_next/static/media/77a1779342baf612-s.p.woff",
+      "description": "Next.js self-hosted webfont (WOFF) — secondary weight"
+    },
+    {
+      "path": "fonts/e4af272ccee01ff0-s.p.woff2",
+      "size": 48432,
+      "type": "font/woff2",
+      "origin": "/_next/static/media/e4af272ccee01ff0-s.p.woff2",
+      "description": "Next.js self-hosted webfont (WOFF2, compressed) — primary"
+    },
+    {
+      "path": "fonts/f4a1dc55f1ad377f-s.p.woff",
+      "size": 52772,
+      "type": "font/woff",
+      "origin": "/_next/static/media/f4a1dc55f1ad377f-s.p.woff",
+      "description": "Next.js self-hosted webfont (WOFF) — alternate weight/style"
+    },
+
+    {
+      "path": "images/icons/Creativo_Code_Logo_Black.svg",
+      "size": 9370,
+      "type": "image/svg+xml",
+      "origin": "/src/icons/Creativo_Code_Logo_Black.svg",
+      "description": "Main brand logo of Creativo Code (black version)"
+    },
+    {
+      "path": "images/icons/blender-icon.svg",
+      "size": 2787,
+      "type": "image/svg+xml",
+      "origin": "/src/icons/blender-icon.svg",
+      "description": "Tech stack icon — Blender (3D)"
+    },
+    {
+      "path": "images/icons/docker-icon.svg",
+      "size": 1193,
+      "type": "image/svg+xml",
+      "origin": "/src/icons/docker-icon.svg",
+      "description": "Tech stack icon — Docker"
+    },
+    {
+      "path": "images/icons/figma-icon.svg",
+      "size": 1185,
+      "type": "image/svg+xml",
+      "origin": "/src/icons/figma-icon.svg",
+      "description": "Tech stack icon — Figma"
+    },
+    {
+      "path": "images/icons/framer-icon.svg",
+      "size": 624,
+      "type": "image/svg+xml",
+      "origin": "/src/icons/framer-icon.svg",
+      "description": "Tech stack icon — Framer"
+    },
+    {
+      "path": "images/icons/mongo-icon.svg",
+      "size": 781,
+      "type": "image/svg+xml",
+      "origin": "/src/icons/mongo-icon.svg",
+      "description": "Tech stack icon — MongoDB"
+    },
+    {
+      "path": "images/icons/next-icon.svg",
+      "size": 2890,
+      "type": "image/svg+xml",
+      "origin": "/src/icons/next-icon.svg",
+      "description": "Tech stack icon — Next.js"
+    },
+    {
+      "path": "images/icons/node-icon.svg",
+      "size": 3945,
+      "type": "image/svg+xml",
+      "origin": "/src/icons/node-icon.svg",
+      "description": "Tech stack icon — Node.js"
+    },
+    {
+      "path": "images/icons/nuxt-icon.svg",
+      "size": 1474,
+      "type": "image/svg+xml",
+      "origin": "/src/icons/nuxt-icon.svg",
+      "description": "Tech stack icon — Nuxt"
+    },
+    {
+      "path": "images/icons/react-icon.svg",
+      "size": 1311,
+      "type": "image/svg+xml",
+      "origin": "/src/icons/react-icon.svg",
+      "description": "Tech stack icon — React"
+    },
+    {
+      "path": "images/icons/svelt-icon.svg",
+      "size": 2647,
+      "type": "image/svg+xml",
+      "origin": "/src/icons/svelt-icon.svg",
+      "description": "Tech stack icon — Svelte"
+    },
+    {
+      "path": "images/icons/tailwind-icon.svg",
+      "size": 1168,
+      "type": "image/svg+xml",
+      "origin": "/src/icons/tailwind-icon.svg",
+      "description": "Tech stack icon — Tailwind CSS"
+    },
+    {
+      "path": "images/icons/vue-icon.svg",
+      "size": 579,
+      "type": "image/svg+xml",
+      "origin": "/src/icons/vue-icon.svg",
+      "description": "Tech stack icon — Vue.js"
+    },
+    {
+      "path": "images/icons/webflow-icon.svg",
+      "size": 766,
+      "type": "image/svg+xml",
+      "origin": "/src/icons/webflow-icon.svg",
+      "description": "Tech stack icon — Webflow"
+    },
+    {
+      "path": "images/icons/wordpress-icon.svg",
+      "size": 2281,
+      "type": "image/svg+xml",
+      "origin": "/src/icons/wordpress-icon.svg",
+      "description": "Tech stack icon — WordPress"
+    },
+
+    {
+      "path": "images/meta/favicon.ico",
+      "size": 11922,
+      "type": "image/x-icon",
+      "origin": "/favicon.ico",
+      "description": "Site favicon (256x256 ICO with embedded PNG)"
+    },
+    {
+      "path": "images/meta/opengraph-image.png",
+      "size": 334367,
+      "type": "image/png",
+      "origin": "/opengraph-image.png",
+      "description": "Open Graph share image (2000x1124) for social previews"
+    },
+    {
+      "path": "images/meta/twitter-image.png",
+      "size": 334367,
+      "type": "image/png",
+      "origin": "/twitter-image.png",
+      "description": "Twitter card image (2000x1124) — same artwork as OG"
+    },
+
+    {
+      "path": "images/misc/hand-wave.svg",
+      "size": 18676,
+      "type": "image/svg+xml",
+      "origin": "/src/img/hand-wave.svg",
+      "description": "Decorative waving-hand emoji/SVG used in hero greeting"
+    },
+
+    {
+      "path": "images/prismic/ZvWhtrVsGrYSwDK7_Frame202.png",
+      "size": 2299586,
+      "type": "image/png",
+      "origin": "https://images.prismic.io/creativo-code-official/ZvWhtrVsGrYSwDK7_Frame202.png",
+      "description": "Prismic-hosted product/feature mockup (Frame 202) — 1580x2114"
+    },
+    {
+      "path": "images/prismic/ZvWhvbVsGrYSwDK8_Frame203.png",
+      "size": 4354567,
+      "type": "image/png",
+      "origin": "https://images.prismic.io/creativo-code-official/ZvWhvbVsGrYSwDK8_Frame203.png",
+      "description": "Prismic-hosted product/feature mockup (Frame 203) — 1581x2114"
+    },
+    {
+      "path": "images/prismic/ZvWhwbVsGrYSwDK-_Frame204.png",
+      "size": 1624336,
+      "type": "image/png",
+      "origin": "https://images.prismic.io/creativo-code-official/ZvWhwbVsGrYSwDK-_Frame204.png",
+      "description": "Prismic-hosted product/feature mockup (Frame 204) — 1581x2114"
+    },
+    {
+      "path": "images/prismic/ZvWhxrVsGrYSwDK__Frame205.png",
+      "size": 3087226,
+      "type": "image/png",
+      "origin": "https://images.prismic.io/creativo-code-official/ZvWhxrVsGrYSwDK__Frame205.png",
+      "description": "Prismic-hosted product/feature mockup (Frame 205) — 1581x2114"
+    },
+    {
+      "path": "images/prismic/ZvWhzLVsGrYSwDLA_Frame206.png",
+      "size": 3098018,
+      "type": "image/png",
+      "origin": "https://images.prismic.io/creativo-code-official/ZvWhzLVsGrYSwDLA_Frame206.png",
+      "description": "Prismic-hosted product/feature mockup (Frame 206) — 1581x2114"
+    },
+
+    {
+      "path": "images/testimonials/firefly.png",
+      "size": 30964,
+      "type": "image/png",
+      "origin": "/src/img/testimonials/clients/firefly.png",
+      "description": "Testimonial client avatar — Firefly (logo/portrait)"
+    },
+    {
+      "path": "images/testimonials/Heli.jpg",
+      "size": 96856,
+      "type": "image/jpeg",
+      "origin": "/src/img/testimonials/clients/Heli.jpg",
+      "description": "Testimonial client photo — Heli"
+    },
+    {
+      "path": "images/testimonials/Palav.jpg",
+      "size": 106151,
+      "type": "image/jpeg",
+      "origin": "/src/img/testimonials/clients/Palav.jpg",
+      "description": "Testimonial client photo — Palav"
+    },
+    {
+      "path": "images/testimonials/Perera.jpeg",
+      "size": 60277,
+      "type": "image/jpeg",
+      "origin": "/src/img/testimonials/clients/Perera.jpeg",
+      "description": "Testimonial client photo — Perera"
+    },
+    {
+      "path": "images/testimonials/Seb.png",
+      "size": 64153,
+      "type": "image/png",
+      "origin": "/src/img/testimonials/clients/Seb.png",
+      "description": "Testimonial client photo/avatar — Seb"
+    },
+    {
+      "path": "images/testimonials/Tamanna.jpeg",
+      "size": 140498,
+      "type": "image/jpeg",
+      "origin": "/src/img/testimonials/clients/Tamanna.jpeg",
+      "description": "Testimonial client photo — Tamanna"
+    }
+  ],
+  "not_found": [
+    {
+      "url": "/favicon-16x16.png",
+      "reason": "HTTP 404 — referenced in <link> tag but not served by the site"
+    },
+    {
+      "url": "/apple-touch-icon.png",
+      "reason": "HTTP 404 — referenced in <link> tag but not served by the site"
+    },
+    {
+      "url": "/favicon-32x32.png",
+      "reason": "HTTP 404 — not present"
+    }
+  ],
+  "notes": [
+    "No videos (mp4/webm) were referenced in the homepage HTML.",
+    "Optimized /_next/image URLs were decoded to their original /src/img/... paths and downloaded as originals.",
+    "Font filenames are Next.js hashed names — they are TrueType glyphs wrapped as WOFF/WOFF2 (likely Inter or a custom font; inspect CSS to map family names).",
+    "All Prismic CDN images were downloaded at full resolution (no width/format params)."
+  ]
+}
