@@ -196,18 +196,31 @@ function ContactPageInner() {
               </p>
             </div>
 
-            {/* Response time */}
+            {/* Cal.com booking */}
             <a
-              href="mailto:hola@mickaelvasquez.tech"
-              className="contact-info-card group block rounded-2xl border border-white/10 bg-white/[0.03] p-6 hover:border-accent/50 hover:-translate-y-0.5 hover:bg-white/[0.05] transition-all duration-300"
+              id="schedule"
+              href="https://cal.com/mickaelvasquez"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-info-card group block rounded-2xl border border-white/10 bg-white/[0.03] p-6 hover:border-accent/50 hover:-translate-y-0.5 hover:bg-accent/[0.06] transition-all duration-300"
             >
               <p className="text-[11px] uppercase tracking-widest text-white/40 mb-3">
-                {locale === "es" ? "Tiempo de respuesta" : "Response time"}
+                {locale === "es" ? "Agendar llamada" : "Book a call"}
               </p>
-              <p className="text-xl font-semibold text-white group-hover:text-purple-hover transition-colors duration-300">
-                {locale === "es" ? "Menos de 24 horas" : "Under 24 hours"}
-              </p>
-              <p className="text-sm text-white/50 mt-1">hola@mickaelvasquez.tech ↗</p>
+              <div className="flex items-center justify-between">
+                <p className="text-xl font-semibold text-white group-hover:text-accent transition-colors duration-300">
+                  {locale === "es" ? "30 min · Gratis" : "30 min · Free"}
+                </p>
+                <span className="w-9 h-9 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center group-hover:bg-accent group-hover:border-accent transition-all duration-300">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-accent group-hover:text-white transition-colors duration-300">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                    <line x1="16" y1="2" x2="16" y2="6" />
+                    <line x1="8" y1="2" x2="8" y2="6" />
+                    <line x1="3" y1="10" x2="21" y2="10" />
+                  </svg>
+                </span>
+              </div>
+              <p className="text-sm text-white/50 mt-1.5">cal.com/mickaelvasquez ↗</p>
             </a>
 
             {/* Location */}

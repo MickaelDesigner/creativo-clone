@@ -25,7 +25,7 @@ const STUDIO: FooterLink[] = [
 const CONNECT: FooterLink[] = [
   { label: "Start a project",                          href: "/contact"                 },
   { label: "hola@mickaelvasquez.tech",                href: "mailto:hola@mickaelvasquez.tech" },
-  { label: "Schedule a call",                          href: "/contact#schedule"        },
+  { label: "Schedule a call",                          href: "https://cal.com/mickaelvasquez" },
   { label: "Remote · Worldwide",                       href: "/contact"                 },
 ];
 
