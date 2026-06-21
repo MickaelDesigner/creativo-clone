@@ -199,7 +199,7 @@ function ContactPageInner() {
             {/* Cal.com booking */}
             <a
               id="schedule"
-              href="https://cal.com/mickaelvasquez"
+              href="https://cal.com/mickael-vasquez-carvallo/personal"
               target="_blank"
               rel="noopener noreferrer"
               className="contact-info-card group block rounded-2xl border border-white/10 bg-white/[0.03] p-6 hover:border-accent/50 hover:-translate-y-0.5 hover:bg-accent/[0.06] transition-all duration-300"
@@ -220,7 +220,7 @@ function ContactPageInner() {
                   </svg>
                 </span>
               </div>
-              <p className="text-sm text-white/50 mt-1.5">cal.com/mickaelvasquez ↗</p>
+              <p className="text-sm text-white/50 mt-1.5">cal.com/mickael-vasquez-carvallo ↗</p>
             </a>
 
             {/* Location */}
