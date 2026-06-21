@@ -11,11 +11,8 @@ import { useT, useLocale } from "../lib/LangContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const CONTACT_INFO = [
-  { label: "Email",    value: "hola@mickaelvasquez.tech",   href: "mailto:hola@mickaelvasquez.tech" },
-  { label: "GitHub",   value: "github.com/MickaelDesigner",  href: "https://github.com/MickaelDesigner" },
-  { label: "Location", value: "Remote · Worldwide",          href: null },
-];
+// Static info cards — email & GitHub live in social section below
+
 
 const SOCIAL_LINKS = [
   { label: "Instagram", href: "https://www.instagram.com/mickaeldiseno/" },
@@ -179,31 +176,48 @@ function ContactPageInner() {
 
           {/* ── Left — info cards ── */}
           <div className="contact-info-grid flex flex-col gap-4">
-            {CONTACT_INFO.map((c) => {
-              const inner = (
-                <>
-                  <p className="text-[11px] uppercase tracking-widest text-white/40 mb-2">{c.label}</p>
-                  <p className="text-xl lg:text-2xl font-semibold tracking-tight group-hover:text-purple-hover transition-colors duration-300">
-                    {c.value}
-                  </p>
-                </>
-              );
-              return c.href ? (
-                <a
-                  key={c.label}
-                  href={c.href}
-                  target={c.href.startsWith("http") ? "_blank" : undefined}
-                  rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="contact-info-card group block rounded-2xl border border-white/10 bg-white/[0.03] p-6 hover:border-accent/50 hover:-translate-y-0.5 hover:bg-white/[0.05] transition-all duration-300"
-                >
-                  {inner}
-                </a>
-              ) : (
-                <div key={c.label} className="contact-info-card rounded-2xl border border-white/10 bg-white/[0.03] p-6">
-                  {inner}
-                </div>
-              );
-            })}
+
+            {/* Availability */}
+            <div className="contact-info-card rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+              <p className="text-[11px] uppercase tracking-widest text-white/40 mb-3">
+                {locale === "es" ? "Disponibilidad" : "Availability"}
+              </p>
+              <div className="flex items-center gap-3">
+                <span className="relative flex h-3 w-3 shrink-0">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60" />
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500" />
+                </span>
+                <span className="text-xl font-semibold text-white">
+                  {locale === "es" ? "Disponible ahora" : "Available now"}
+                </span>
+              </div>
+              <p className="text-sm text-white/50 mt-2 ml-6">
+                {locale === "es" ? "Abriendo agenda · Q3 2026" : "Taking new projects · Q3 2026"}
+              </p>
+            </div>
+
+            {/* Response time */}
+            <a
+              href="mailto:hola@mickaelvasquez.tech"
+              className="contact-info-card group block rounded-2xl border border-white/10 bg-white/[0.03] p-6 hover:border-accent/50 hover:-translate-y-0.5 hover:bg-white/[0.05] transition-all duration-300"
+            >
+              <p className="text-[11px] uppercase tracking-widest text-white/40 mb-3">
+                {locale === "es" ? "Tiempo de respuesta" : "Response time"}
+              </p>
+              <p className="text-xl font-semibold text-white group-hover:text-purple-hover transition-colors duration-300">
+                {locale === "es" ? "Menos de 24 horas" : "Under 24 hours"}
+              </p>
+              <p className="text-sm text-white/50 mt-1">hola@mickaelvasquez.tech ↗</p>
+            </a>
+
+            {/* Location */}
+            <div className="contact-info-card rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+              <p className="text-[11px] uppercase tracking-widest text-white/40 mb-3">
+                {locale === "es" ? "Ubicación" : "Location"}
+              </p>
+              <p className="text-xl font-semibold text-white">Remote · Worldwide</p>
+              <p className="text-sm text-white/50 mt-1">Santa Cruz de la Sierra, Bolivia</p>
+            </div>
 
             {/* Hours */}
             <div className="contact-info-card rounded-2xl border border-white/10 bg-white/[0.03] p-6">
