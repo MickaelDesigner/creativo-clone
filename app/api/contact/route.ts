@@ -35,13 +35,17 @@ export async function POST(req: NextRequest) {
     });
 
     if (error) {
-      console.error("Resend error:", error);
-      return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
+      console.error("Resend error:", JSON.stringify(error));
+      return NextResponse.json(
+        { error: "Failed to send email", detail: (error as { message?: string }).message ?? String(error) },
+        { status: 500 }
+      );
     }
 
     return NextResponse.json({ ok: true });
   } catch (err) {
-    console.error("Contact route error:", err);
-    return NextResponse.json({ error: "Server error" }, { status: 500 });
+    const msg = err instanceof Error ? err.message : String(err);
+    console.error("Contact route error:", msg);
+    return NextResponse.json({ error: "Server error", detail: msg }, { status: 500 });
   }
 }

@@ -92,14 +92,6 @@ function ContactPageInner() {
     tl.from(".contact-line",  { opacity: 0, y: 60, duration: 0.9, stagger: 0.13, ease: "power4.out" }, "-=0.3");
     tl.from(".contact-sub",   { opacity: 0, y: 30, duration: 0.7, ease: "power3.out" }, "-=0.4");
 
-    gsap.from(".contact-info-card", {
-      opacity: 0, y: 50, duration: 0.8, stagger: 0.12, ease: "power3.out",
-      scrollTrigger: { trigger: ".contact-info-grid", start: "top 85%" },
-    });
-    gsap.from(".contact-form-block", {
-      opacity: 0, y: 50, duration: 0.8, ease: "power3.out",
-      scrollTrigger: { trigger: ".contact-form-block", start: "top 85%" },
-    });
     gsap.from(".contact-fact", {
       opacity: 0, y: 40, duration: 0.6, stagger: 0.08, ease: "power3.out",
       scrollTrigger: { trigger: ".contact-facts", start: "top 85%" },
@@ -125,19 +117,23 @@ function ContactPageInner() {
         }),
       });
 
-      if (!res.ok) throw new Error("Network error");
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.detail || "Network error");
+      }
       setStatus("success");
       form.reset();
       setService(SERVICES[0]);
       setBudget("");
-    } catch {
+    } catch (err) {
       setStatus("error");
+      const detail = err instanceof Error ? err.message : "";
       setErrorMsg(
         locale === "es"
-          ? "Algo salió mal. Escribime directo a hola@mickaelvasquez.tech"
-          : "Something went wrong. Email me directly at hola@mickaelvasquez.tech"
+          ? `Error: ${detail || "Algo salió mal"}. Escribime a hola@mickaelvasquez.tech`
+          : `Error: ${detail || "Something went wrong"}. Email me at hola@mickaelvasquez.tech`
       );
-      setTimeout(() => setStatus("idle"), 6000);
+      setTimeout(() => setStatus("idle"), 10000);
     }
   }
 
