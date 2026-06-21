@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { POSTS } from "../../lib/posts";
 import { LangProvider } from "../../lib/LangContext";
 import BlogPostContent from "../../components/BlogPostContent";
-import { SITE } from "../../lib/site";
+import { SITE, SITE_URL } from "../../lib/site";
 
 export function generateStaticParams() {
   return POSTS.map((p) => ({ slug: p.slug }));
@@ -27,7 +27,15 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description: post.excerpt,
       url: `/blog/${slug}`,
       siteName: SITE.brand,
-      images: [{ url: post.img, width: 1200, height: 630 }],
+      type: "article",
+      images: [{ url: `${SITE_URL}/og?slug=${slug}`, width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: [`${SITE_URL}/og?slug=${slug}`],
+      creator: SITE.twitterHandle,
     },
   };
 }

@@ -24,7 +24,7 @@ const STUDIO: FooterLink[] = [
 
 const CONNECT: FooterLink[] = [
   { label: "Start a project",                          href: "/contact"                 },
-  { label: "hello@mickaelvasquez.tech",                href: "mailto:hello@mickaelvasquez.tech" },
+  { label: "hola@mickaelvasquez.tech",                href: "mailto:hola@mickaelvasquez.tech" },
   { label: "Schedule a call",                          href: "/contact#schedule"        },
   { label: "Remote · Worldwide",                       href: "/contact"                 },
 ];
@@ -150,8 +150,8 @@ export default function Footer() {
         </p>
         <p>
           {t.footer.builtWith} →{" "}
-          <a href="mailto:hello@mickaelvasquez.tech" className="text-footer-link hover:text-purple-hover underline">
-            hello@mickaelvasquez.tech
+          <a href="mailto:hola@mickaelvasquez.tech" className="text-footer-link hover:text-purple-hover underline">
+            hola@mickaelvasquez.tech
           </a>
         </p>
       </div>

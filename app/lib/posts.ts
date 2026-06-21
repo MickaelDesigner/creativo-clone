@@ -19,7 +19,7 @@ export const POSTS: Post[] = [
     category: "IA Agents",
     readTime: "12 min",
     date: "Jun 18, 2026",
-    img: "/assets/images/prismic/ZvWhtrVsGrYSwDK7_Frame202.png",
+    img: "/assets/images/blog/mi-equipo-de-11-agentes-ia.png",
     featured: true,
     body: `<h2>El cuello de botella se llama vos</h2>
 
@@ -208,7 +208,7 @@ export const POSTS: Post[] = [
     category: "Stack",
     readTime: "7 min",
     date: "Jun 15, 2026",
-    img: "/assets/images/prismic/ZvWhvbVsGrYSwDK8_Frame203.png",
+    img: "/assets/images/blog/stack-saas-ia-2026.png",
     body: `<h2>Un stack no es una lista de tools. Es una decisión de arquitectura.</h2>
 
 <p>Cada vez que alguien me pregunta "¿qué tecnología uso para hacer X?", la respuesta honesta es: depende de para qué. Pero en 2026, después de construir Nexus CRM, JARVIS, y varios proyectos de clientes, tengo un stack que uso por default para cualquier SaaS moderno con componentes de IA.</p>
@@ -415,7 +415,7 @@ CREATE POLICY "org_isolation" ON contacts
     category: "IA Agents",
     readTime: "6 min",
     date: "Jun 12, 2026",
-    img: "/assets/images/prismic/ZvWhwbVsGrYSwDK-_Frame204.png",
+    img: "/assets/images/blog/orquestador-vs-ejecutor-agentes-ia.png",
     body: `<h2>El error que cometen todos al empezar con agentes IA</h2>
 
 <p>Cuando descubrís que podés darle instrucciones complejas a un modelo de IA, la tentación natural es construir un agente que haga todo. "Vos sos mi asistente. Diseñá, desarrollá, respondé emails, llevá la contabilidad, manejá las redes sociales."</p>
@@ -546,7 +546,7 @@ CREATE POLICY "org_isolation" ON contacts
     category: "Automatización",
     readTime: "7 min",
     date: "Jun 10, 2026",
-    img: "/assets/images/prismic/ZvWhxrVsGrYSwDK__Frame205.png",
+    img: "/assets/images/blog/automatizar-branding-ia-pipeline.png",
     body: `<h2>El problema con el branding tradicional</h2>
 
 <p>El proceso de branding clásico tiene un problema de escala: es casi completamente lineal y depende de la disponibilidad y energía del diseñador en cada etapa. Brief del cliente, investigación, moodboards, propuestas de logo, revisiones, ajustes, brand kit, brand book. En el mejor caso, una semana de trabajo. En proyectos con clientes exigentes o muchas rondas de revisión, dos o tres semanas.</p>

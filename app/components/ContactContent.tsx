@@ -12,7 +12,7 @@ import { useT, useLocale } from "../lib/LangContext";
 gsap.registerPlugin(ScrollTrigger);
 
 const CONTACT_INFO = [
-  { label: "Email",    value: "hello@mickaelvasquez.tech",   href: "mailto:hello@mickaelvasquez.tech" },
+  { label: "Email",    value: "hola@mickaelvasquez.tech",   href: "mailto:hola@mickaelvasquez.tech" },
   { label: "GitHub",   value: "github.com/MickaelDesigner",  href: "https://github.com/MickaelDesigner" },
   { label: "Location", value: "Remote · Worldwide",          href: null },
 ];
@@ -118,15 +118,13 @@ function ContactPageInner() {
     const data = Object.fromEntries(new FormData(form));
 
     try {
-      const res = await fetch("https://formsubmit.co/ajax/hello@mickaelvasquez.tech", {
+      const res = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...data,
           service,
-          budget: budget || "Not specified",
-          _subject: `Nuevo contacto de ${data.name} — ${service}`,
-          _template: "table",
+          budget: budget || "",
         }),
       });
 
@@ -139,8 +137,8 @@ function ContactPageInner() {
       setStatus("error");
       setErrorMsg(
         locale === "es"
-          ? "Algo salió mal. Escribime directo a hello@mickaelvasquez.tech"
-          : "Something went wrong. Email me directly at hello@mickaelvasquez.tech"
+          ? "Algo salió mal. Escribime directo a hola@mickaelvasquez.tech"
+          : "Something went wrong. Email me directly at hola@mickaelvasquez.tech"
       );
       setTimeout(() => setStatus("idle"), 6000);
     }
