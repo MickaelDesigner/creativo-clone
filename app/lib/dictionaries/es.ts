@@ -6,6 +6,7 @@ export const es: Dict = {
     projects: "Proyectos",
     contact: "Contacto",
     blog: "Blog",
+    about: "Sobre mí",
     cta: "Hablemos",
     home: "Inicio",
     menu: "Menú",
@@ -14,9 +15,9 @@ export const es: Dict = {
     language: "Idioma",
   },
   hero: {
-    lead: "No solo desarrollamos sitios web.",
+    lead: "No solo desarrollo sitios web.",
     leadAccent: "No solo",
-    line1: "Creamos",
+    line1: "Creo",
     line2: "experiencias",
     line3: "creativas.",
     role: "Creative Tech Designer",
@@ -26,13 +27,13 @@ export const es: Dict = {
   },
   services: {
     topic: "Servicios",
-    title: "¿Cómo ayudamos a nuestros clientes?",
+    title: "¿Cómo puedo ayudarte?",
   },
   clients: { title: "Clientes, socios y amigos :)" },
   projects: {
     topic: "Proyectos",
     title1: "Aman",
-    title2: "nuestro trabajo",
+    title2: "mi trabajo",
     explore: "Ver\nmás\nproyectos",
   },
   projectsIndex: {
@@ -44,12 +45,12 @@ export const es: Dict = {
   },
   testimonials: {
     title1: "Con datos",
-    title2: "creamos",
+    title2: "creo",
     subtitle: "maravillas digitales que cobran vida.",
     drag: "Arrástrame",
   },
   breakMold: { word1: "Rompe", word2: "Molde" },
-  technologies: { topic: "Tecnologías", title1: "Nuestras", title2: "herramientas" },
+  technologies: { topic: "Tecnologías", title1: "Mis", title2: "herramientas" },
   cta: {
     title: "¿Aún esperando para empezar?",
     subtitle: "¡Hablemos!",
@@ -59,7 +60,7 @@ export const es: Dict = {
   workTogether: { marquee: "¡Trabajemos juntos!" },
   footer: {
     services: "Servicios",
-    studio: "Estudio",
+    studio: "Sobre mí",
     connect: "Conecta",
     role: "Creative Tech Designer",
     tagline:

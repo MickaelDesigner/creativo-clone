@@ -10,19 +10,45 @@ import SmoothScroll from "./SmoothScroll";
 import Nav from "./Nav";
 import Footer from "./Footer";
 import { useT, useLocale } from "../lib/LangContext";
-import { POSTS, CATEGORIES } from "../lib/posts";
+import { POSTS, CATEGORIES, type Post } from "../lib/posts";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function BlogInner() {
+function BlogInner({ posts, categories }: { posts: Post[]; categories: string[] }) {
   const t = useT();
   const locale = useLocale();
   const base = locale === "es" ? "/es" : "";
   const container = useRef<HTMLElement>(null);
   const [filter, setFilter] = useState<string>("All");
+  const [nlEmail, setNlEmail] = useState("");
+  const [nlStatus, setNlStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
-  const featured = POSTS.find((p) => p.featured);
-  const rest = POSTS.filter((p) => !p.featured);
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!nlEmail.includes("@")) return;
+    setNlStatus("sending");
+    try {
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: nlEmail, locale, source: "mickaelvasquez.tech/blog" }),
+      });
+      if (res.ok) {
+        setNlStatus("success");
+        setNlEmail("");
+        setTimeout(() => setNlStatus("idle"), 5000);
+      } else {
+        setNlStatus("error");
+        setTimeout(() => setNlStatus("idle"), 5000);
+      }
+    } catch {
+      setNlStatus("error");
+      setTimeout(() => setNlStatus("idle"), 5000);
+    }
+  };
+
+  const featured = posts.find((p) => p.featured);
+  const rest = posts.filter((p) => !p.featured);
   const filtered = filter === "All" ? rest : rest.filter((p) => p.category === filter);
 
   useGSAP(
@@ -138,7 +164,7 @@ function BlogInner() {
       <section className="blog-categories px-6 sm:px-10 lg:px-24 pb-10 sm:pb-12">
         <div className="flex flex-wrap gap-2 sm:gap-3 items-center">
           <span className="text-xs uppercase tracking-widest text-white/50 mr-2">{t.blog.filter}</span>
-          {CATEGORIES.map((c) => (
+          {categories.map((c) => (
             <button
               key={c}
               type="button"
@@ -212,19 +238,24 @@ function BlogInner() {
             </p>
             <form
               className="mt-4 flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-xl"
-              onSubmit={(e) => e.preventDefault()}
+              onSubmit={handleNewsletterSubmit}
             >
               <input
                 type="email"
+                value={nlEmail}
+                onChange={(e) => setNlEmail(e.target.value)}
                 placeholder={t.blog.nlPlaceholder}
                 aria-label={t.blog.nlPlaceholder}
-                className="flex-1 rounded-full bg-white/15 border border-white/30 px-5 sm:px-6 h-12 sm:h-14 text-white placeholder-white/60 outline-none focus:border-white transition-colors duration-200"
+                required
+                disabled={nlStatus === "sending"}
+                className="flex-1 rounded-full bg-white/15 border border-white/30 px-5 sm:px-6 h-12 sm:h-14 text-white placeholder-white/60 outline-none focus:border-white transition-colors duration-200 disabled:opacity-50"
               />
               <button
                 type="submit"
-                className="rounded-full bg-white text-bg font-bold px-6 sm:px-8 h-12 sm:h-14 hover:scale-105 transition-transform duration-200"
+                disabled={nlStatus === "sending"}
+                className="rounded-full bg-white text-bg font-bold px-6 sm:px-8 h-12 sm:h-14 hover:scale-105 transition-transform duration-200 disabled:opacity-50 disabled:hover:scale-100"
               >
-                {t.blog.nlButton}
+                {nlStatus === "sending" ? "..." : nlStatus === "success" ? "✓" : nlStatus === "error" ? "✗" : t.blog.nlButton}
               </button>
             </form>
           </div>
@@ -234,11 +265,11 @@ function BlogInner() {
   );
 }
 
-export default function BlogContent() {
+export default function BlogContent({ posts = POSTS.filter((p) => p.body), categories = CATEGORIES }: { posts?: Post[]; categories?: string[] }) {
   return (
     <SmoothScroll>
       <Nav />
-      <BlogInner />
+      <BlogInner posts={posts} categories={categories} />
       <Footer />
     </SmoothScroll>
   );

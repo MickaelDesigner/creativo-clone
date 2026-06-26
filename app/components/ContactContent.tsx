@@ -130,8 +130,8 @@ function ContactPageInner() {
       const detail = err instanceof Error ? err.message : "";
       setErrorMsg(
         locale === "es"
-          ? `Error: ${detail || "Algo salió mal"}. Escribime a hola@mickaelvasquez.tech`
-          : `Error: ${detail || "Something went wrong"}. Email me at hola@mickaelvasquez.tech`
+          ? `Error: ${detail || "Algo salió mal"}. Escribime a mickael.vc7@gmail.com`
+          : `Error: ${detail || "Something went wrong"}. Email me at mickael.vc7@gmail.com`
       );
       setTimeout(() => setStatus("idle"), 10000);
     }

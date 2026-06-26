@@ -21,6 +21,7 @@ export default function Nav() {
 
   const base = locale === "es" ? "/es" : "";
   const LINKS = [
+    { id: "about", name: t.nav.about, href: `${base}/about` },
     { id: "projects", name: t.nav.projects, href: `${base}/projects` },
     { id: "contact", name: t.nav.contact, href: `${base}/contact` },
     { id: "blog", name: t.nav.blog, href: `${base}/blog` },

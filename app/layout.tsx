@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { SITE_URL, SITE, SAME_AS } from "./lib/site";
+import { PostHogProvider } from "./components/PostHog";
 
 const noir = localFont({
   variable: "--font-noir",
@@ -131,6 +132,33 @@ const JSON_LD_WEBSITE = {
   inLanguage: ["en", "es"],
 };
 
+const JSON_LD_SERVICES = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Services offered by Mickael Vasquez",
+  description: "UI/UX Design, Brand Identity, Web Development and Product Engineering.",
+  url: `${SITE_URL}/#services`,
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "UI/UX Design", description: "Figma, prototyping, wireframes, creative design for web and mobile." },
+    { "@type": "ListItem", position: 2, name: "Brand Identity Design", description: "Logo design, brand guidelines, typography, visual identity systems." },
+    { "@type": "ListItem", position: 3, name: "Web Development", description: "Next.js, React, headless CMS, Webflow development." },
+    { "@type": "ListItem", position: 4, name: "Product Engineering", description: "E-commerce, MVP development, SaaS, mobile apps." },
+  ],
+};
+
+const JSON_LD_BREADCRUMBS = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  name: "Site breadcrumbs",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+    { "@type": "ListItem", position: 2, name: "Projects", item: `${SITE_URL}/projects` },
+    { "@type": "ListItem", position: 3, name: "About", item: `${SITE_URL}/about` },
+    { "@type": "ListItem", position: 4, name: "Blog", item: `${SITE_URL}/blog` },
+    { "@type": "ListItem", position: 5, name: "Contact", item: `${SITE_URL}/contact` },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -145,8 +173,18 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD_WEBSITE) }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD_SERVICES) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD_BREADCRUMBS) }}
+        />
       </head>
-      <body className="bg-bg overflow-x-hidden min-h-screen">{children}</body>
+      <body className="bg-bg overflow-x-hidden min-h-screen">
+        <PostHogProvider>{children}</PostHogProvider>
+      </body>
     </html>
   );
 }

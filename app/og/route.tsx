@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { NextRequest } from "next/server";
 import { readFileSync } from "fs";
 import { join } from "path";
-import { POSTS } from "../lib/posts";
+import { POSTS, fetchPostBySlug } from "../lib/posts";
 
 export const runtime = "nodejs";
 
@@ -15,7 +15,7 @@ const fontRegular = readFileSync(
 
 export async function GET(req: NextRequest) {
   const slug = req.nextUrl.searchParams.get("slug") ?? "";
-  const post = POSTS.find((p) => p.slug === slug);
+  const post = POSTS.find((p) => p.slug === slug) ?? (slug ? await fetchPostBySlug(slug) : null);
 
   const title = post?.title ?? "Mickael Vasquez";
   const category = post?.category ?? "Blog";

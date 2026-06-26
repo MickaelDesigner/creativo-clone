@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useT } from "../lib/LangContext";
+import { useT, useLocale } from "../lib/LangContext";
 
 type FooterLink = { label: string; href: string };
 
@@ -16,15 +16,15 @@ const SERVICES: FooterLink[] = [
 ];
 
 const STUDIO: FooterLink[] = [
-  { label: "Selected Work — Case studies",             href: "/#projects"               },
-  { label: "Approach & Process",                       href: "/projects/aurora-finance#process" },
-  { label: "Technology stack",                         href: "/#technologies"           },
-  { label: "Field notes (Blog)",                       href: "/blog"                    },
+  { label: "About Me — Story & Philosophy",                href: "/about"                   },
+  { label: "Selected Work — Case studies",                 href: "/#projects"               },
+  { label: "Technology stack",                             href: "/#technologies"           },
+  { label: "Field notes (Blog)",                           href: "/blog"                    },
 ];
 
 const CONNECT: FooterLink[] = [
   { label: "Start a project",                          href: "/contact"                 },
-  { label: "hola@mickaelvasquez.tech",                href: "mailto:hola@mickaelvasquez.tech" },
+  { label: "mickael.vc7@gmail.com",                href: "mailto:mickael.vc7@gmail.com" },
   { label: "Schedule a call",                          href: "https://cal.com/mickael-vasquez-carvallo/personal" },
   { label: "Remote · Worldwide",                       href: "/contact"                 },
 ];
@@ -78,14 +78,18 @@ function Social({ s }: { s: { label: string; href: string; path: string } }) {
   );
 }
 
-function FooterColumn({ title, links }: { title: string; links: FooterLink[] }) {
+function FooterColumn({ title, links, localeBase }: { title: string; links: FooterLink[]; localeBase: string }) {
+  const prefixed = links.map((l) => ({
+    ...l,
+    href: l.href.startsWith("/") && !l.href.startsWith("//") ? `${localeBase}${l.href}` : l.href,
+  }));
   return (
     <nav aria-label={title} className="flex flex-col items-center sm:items-start gap-3 text-center sm:text-left">
       <p className="text-footer-link/60 mb-2 font-semibold text-sm uppercase tracking-widest">
         {title}
       </p>
       <ul className="flex flex-col gap-2.5 w-full">
-        {links.map((l) => {
+        {prefixed.map((l) => {
           const isExternal = l.href.startsWith("http") || l.href.startsWith("mailto:");
           return (
             <li key={l.label}>
@@ -109,7 +113,11 @@ function FooterColumn({ title, links }: { title: string; links: FooterLink[] }) 
 
 export default function Footer() {
   const t = useT();
+  const locale = useLocale();
+  const base = locale === "es" ? "/es" : "";
   const year = new Date().getFullYear();
+
+  const l = (href: string) => href.startsWith("/") && !href.startsWith("http") ? `${base}${href}` : href;
   return (
     <footer
       itemScope
@@ -139,9 +147,9 @@ export default function Footer() {
           </div>
         </div>
 
-        <FooterColumn title={t.footer.services} links={SERVICES} />
-        <FooterColumn title={t.footer.studio}   links={STUDIO} />
-        <FooterColumn title={t.footer.connect}  links={CONNECT} />
+        <FooterColumn title={t.footer.services} links={SERVICES} localeBase={base} />
+        <FooterColumn title={t.footer.studio}   links={STUDIO} localeBase={base} />
+        <FooterColumn title={t.footer.connect}  links={CONNECT} localeBase={base} />
       </div>
 
       <div className="border-t border-footer-link/15 mt-16 pt-6 flex flex-col sm:flex-row gap-3 sm:gap-6 items-center justify-between text-xs sm:text-sm text-footer-link/70 text-center">
@@ -150,8 +158,8 @@ export default function Footer() {
         </p>
         <p>
           {t.footer.builtWith} →{" "}
-          <a href="mailto:hola@mickaelvasquez.tech" className="text-footer-link hover:text-purple-hover underline">
-            hola@mickaelvasquez.tech
+          <a href="mailto:mickael.vc7@gmail.com" className="text-footer-link hover:text-purple-hover underline">
+            mickael.vc7@gmail.com
           </a>
         </p>
       </div>

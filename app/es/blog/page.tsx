@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { LangProvider } from "../../lib/LangContext";
 import BlogContent from "../../components/BlogContent";
 import { SITE } from "../../lib/site";
+import { POSTS } from "../../lib/posts";
 
 export const metadata: Metadata = {
   title: "Blog — Notas de campo sobre diseño, IA y web · Mickael Vasquez",
@@ -22,10 +23,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default function BlogPageEs() {
+export default async function BlogPageEs() {
+  const posts = POSTS.filter((p) => p.body);
+  const categories = ["All", ...Array.from(new Set(posts.map((p) => p.category)))];
   return (
     <LangProvider locale="es">
-      <BlogContent />
+      <BlogContent posts={posts} categories={categories} />
     </LangProvider>
   );
 }

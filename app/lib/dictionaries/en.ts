@@ -4,6 +4,7 @@ export const en = {
     projects: "Projects",
     contact: "Contact",
     blog: "Blog",
+    about: "About",
     cta: "Let's talk",
     home: "Home",
     menu: "Menu",
@@ -12,9 +13,9 @@ export const en = {
     language: "Language",
   },
   hero: {
-    lead: "We don't just develop websites.",
+    lead: "I don't just develop websites.",
     leadAccent: "don't just",
-    line1: "We make",
+    line1: "I create",
     line2: "Creative",
     line3: "experiences.",
     role: "Creative Tech Designer",
@@ -24,13 +25,13 @@ export const en = {
   },
   services: {
     topic: "Services",
-    title: "How do we help our clients?",
+    title: "How can I help you?",
   },
-  clients: { title: "Our clients, partners & friends :)" },
+  clients: { title: "Clients, partners & friends :)" },
   projects: {
     topic: "Projects",
     title1: "They love",
-    title2: "our work",
+    title2: "my work",
     explore: "Explore\nMore\nProjects",
   },
   projectsIndex: {
@@ -42,12 +43,12 @@ export const en = {
   },
   testimonials: {
     title1: "With data",
-    title2: "we craft",
-    subtitle: "online wonders we brought to life.",
+    title2: "I craft",
+    subtitle: "online wonders I bring to life.",
     drag: "Drag me",
   },
   breakMold: { word1: "Break", word2: "Mold" },
-  technologies: { topic: "Technologies", title1: "Our tech", title2: "toolbox" },
+  technologies: { topic: "Technologies", title1: "My tech", title2: "toolbox" },
   cta: {
     title: "Still waiting to start?",
     subtitle: "Let's talk!",
@@ -57,7 +58,7 @@ export const en = {
   workTogether: { marquee: "Let's work together!" },
   footer: {
     services: "Services",
-    studio: "Studio",
+    studio: "About",
     connect: "Connect",
     role: "Creative Tech Designer",
     tagline:

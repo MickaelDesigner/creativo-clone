@@ -8,7 +8,7 @@ import BlogPostContent from "../../components/BlogPostContent";
 import { SITE, SITE_URL } from "../../lib/site";
 
 export function generateStaticParams() {
-  return POSTS.map((p) => ({ slug: p.slug }));
+  return POSTS.filter((p) => p.body).map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -45,8 +45,36 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const post = POSTS.find((p) => p.slug === slug);
   if (!post) notFound();
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt,
+    image: post.img.startsWith("http") ? post.img : `${SITE_URL}${post.img}`,
+    datePublished: post.date,
+    author: {
+      "@type": "Person",
+      name: "Mickael Vasquez",
+      url: SITE_URL,
+    },
+    publisher: {
+      "@type": "Person",
+      name: "Mickael Vasquez",
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/blog/${post.slug}`,
+    },
+  };
+
   return (
     <LangProvider locale="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        />
+      </head>
       <BlogPostContent post={post} />
     </LangProvider>
   );

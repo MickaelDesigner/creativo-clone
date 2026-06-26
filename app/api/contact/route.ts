@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const TO = "hola@mickaelvasquez.tech";
+const TO = "mickael.vc7@gmail.com";
 
 export async function POST(req: NextRequest) {
   try {

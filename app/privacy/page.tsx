@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 const EFFECTIVE_DATE = "June 1, 2026";
-const CONTACT_EMAIL = "hola@mickaelvasquez.tech";
+const CONTACT_EMAIL = "mickael.vc7@gmail.com";
 
 const sections = [
   {

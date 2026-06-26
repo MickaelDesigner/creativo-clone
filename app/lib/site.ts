@@ -8,7 +8,7 @@ export const SITE_URL = "https://mickaelvasquez.tech";
 export const SITE = {
   name: "Mickael Vasquez",
   brand: "Mickael Vasquez — Creative Tech Designer",
-  email: "hola@mickaelvasquez.tech",
+  email: "mickael.vc7@gmail.com",
   twitterHandle: "@MickaelDesigner",
   ogImage: "/assets/images/prismic/ZvWhtrVsGrYSwDK7_Frame202.png",
 } as const;
