@@ -20,28 +20,32 @@ const SERVICES: Service[] = [
 
 function ServiceRow({ name, tags }: Service) {
   const [hovered, setHovered] = useState(false);
-  const [display, setDisplay] = useState(name);
+  const [step, setStep] = useState(0);
+  const sequence = [...tags, name];
+  const display = hovered ? sequence[step] : name;
 
   useEffect(() => {
-    if (!hovered) {
-      setDisplay(name);
-      return;
-    }
-    const sequence = [...tags, name];
-    let i = 0;
-    setDisplay(sequence[0]);
+    if (!hovered) return;
+    const last = tags.length;
     const id = window.setInterval(() => {
-      i += 1;
-      if (i >= sequence.length) { window.clearInterval(id); return; }
-      setDisplay(sequence[i]);
+      setStep((prev) => {
+        if (prev >= last) {
+          window.clearInterval(id);
+          return prev;
+        }
+        return prev + 1;
+      });
     }, 320);
     return () => window.clearInterval(id);
-  }, [hovered, name, tags]);
+  }, [hovered, tags]);
 
   return (
     <div
       className="service-row py-7"
-      onMouseEnter={() => setHovered(true)}
+      onMouseEnter={() => {
+        setStep(0);
+        setHovered(true);
+      }}
       onMouseLeave={() => setHovered(false)}
     >
       <span

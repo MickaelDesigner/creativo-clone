@@ -58,7 +58,7 @@ export default function Nav() {
     };
   }, [open]);
 
-  const LangSwitch = ({ onNavigate }: { onNavigate?: () => void }) => (
+  const renderLangSwitch = (onNavigate?: () => void) => (
     <div className="flex items-center gap-1 text-sm font-semibold" aria-label={t.nav.language}>
       {(["en", "es"] as Locale[]).map((lng) => (
         <Link
@@ -109,7 +109,7 @@ export default function Nav() {
 
         {/* Desktop right cluster */}
         <div className="ml-auto hidden md:flex items-center gap-4">
-          <LangSwitch />
+          {renderLangSwitch()}
           <Link
             href={`${base}/contact`}
             className="group relative flex items-center justify-center bg-accent rounded-full px-6 h-12 lg:h-14 text-white text-sm lg:text-base font-semibold brightness-100 hover:brightness-110 duration-300 overflow-hidden"
@@ -201,7 +201,7 @@ export default function Nav() {
             <span className="block text-white/40 text-xs uppercase tracking-wide mb-2">
               {t.nav.language}
             </span>
-            <LangSwitch onNavigate={() => setOpen(false)} />
+            {renderLangSwitch(() => setOpen(false))}
           </div>
         </nav>
       </div>
