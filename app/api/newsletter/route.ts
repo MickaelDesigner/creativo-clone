@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { z } from "zod";
 
 const SB_URL = process.env.NEXT_PUBLIC_SUPABASE_URL ?? "";
 const SB_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? "";
@@ -7,7 +8,7 @@ export async function POST(req: NextRequest) {
   try {
     const { email, locale } = await req.json();
 
-    if (!email || typeof email !== "string" || !email.includes("@")) {
+    if (!z.email().max(254).safeParse(email).success) {
       return NextResponse.json({ error: "Valid email required" }, { status: 400 });
     }
 
