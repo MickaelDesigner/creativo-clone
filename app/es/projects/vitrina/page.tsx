@@ -4,7 +4,7 @@ import VitrinaPage from "../../../projects/vitrina/page";
 import { SITE } from "../../../lib/site";
 
 export const metadata: Metadata = {
-  title: "Vitrina Digital — Caso de estudio · Mickael Vasquez",
+  title: "Vitrina Digital — Caso de estudio",
   description:
     "Catálogo digital estilo Shopify Plus — pedidos directo por WhatsApp, sin comisiones, sin fricción. Caso de estudio de Mickael Vasquez.",
   alternates: {

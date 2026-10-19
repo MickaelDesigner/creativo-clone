@@ -4,7 +4,7 @@ import { LangProvider } from "../lib/LangContext";
 import { SITE } from "../lib/site";
 
 export const metadata: Metadata = {
-  title: "Mickael Vasquez — Creative Tech Designer · Marca · UX · IA",
+  title: { absolute: "Mickael Vasquez — Creative Tech Designer · Marca · UX · IA" },
   description:
     "Mickael Vasquez — Creative Tech Designer. Sistemas de marca, productos con IA y experiencias web modernas: UI/UX, branding, desarrollo web, no-code y animación. Disponible para nuevas colaboraciones.",
   alternates: {

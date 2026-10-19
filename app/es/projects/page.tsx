@@ -4,7 +4,7 @@ import ProjectsIndexContent from "../../components/ProjectsIndexContent";
 import { SITE } from "../../lib/site";
 
 export const metadata: Metadata = {
-  title: "Proyectos — Trabajo seleccionado · Mickael Vasquez",
+  title: "Proyectos — Trabajo seleccionado",
   description:
     "Casos de estudio de Mickael Vasquez — Nexus CRM, Vitrina Digital, Portfolio Web. Branding, ingeniería de producto y experiencias web modernas.",
   alternates: {

@@ -5,7 +5,7 @@ import { SITE } from "../../lib/site";
 import { POSTS } from "../../lib/posts";
 
 export const metadata: Metadata = {
-  title: "Blog — Notas de campo sobre diseño, IA y web · Mickael Vasquez",
+  title: "Blog — Notas de campo sobre diseño, IA y web",
   description:
     "Ensayos y notas de campo de Mickael Vasquez, Creative Tech Designer. Temas: sistemas de marca, productos con IA, ingeniería de diseño, UX, web moderna, animación.",
   alternates: {

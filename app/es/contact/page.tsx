@@ -4,7 +4,7 @@ import ContactContent from "../../components/ContactContent";
 import { SITE } from "../../lib/site";
 
 export const metadata: Metadata = {
-  title: "Contacto — Empieza un proyecto con Mickael Vasquez · Mickael Vasquez",
+  title: { absolute: "Contacto — Empieza un proyecto con Mickael Vasquez" },
   description:
     "¿Tienes un proyecto en mente? Cuéntame sobre él. Trabajo con fundadores y equipos de producto en todo el mundo.",
   alternates: {

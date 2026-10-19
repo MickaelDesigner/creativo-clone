@@ -4,7 +4,7 @@ import PortfolioWebPage from "../../../projects/portfolio-web/page";
 import { SITE } from "../../../lib/site";
 
 export const metadata: Metadata = {
-  title: "Portfolio Web — Caso de estudio · Mickael Vasquez",
+  title: "Portfolio Web — Caso de estudio",
   description:
     "El sitio que estás leyendo — diseñado y construido desde cero como herramienta de venta y vitrina técnica. Caso de estudio de Mickael Vasquez.",
   alternates: {

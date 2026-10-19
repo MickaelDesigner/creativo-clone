@@ -4,7 +4,7 @@ import NexusCrmPage from "../../../projects/nexus-crm/page";
 import { SITE } from "../../../lib/site";
 
 export const metadata: Metadata = {
-  title: "Nexus CRM — Caso de estudio · Mickael Vasquez",
+  title: "Nexus CRM — Caso de estudio",
   description:
     "CRM con IA para negocios en Bolivia. Centraliza WhatsApp, Instagram y Email. Cierra más ventas con un bot que trabaja 24/7.",
   alternates: {

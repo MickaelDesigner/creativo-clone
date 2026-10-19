@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { POSTS } from "../../../lib/posts";
+import { sanitizePostHtml } from "../../../lib/sanitize-post-html";
 import { LangProvider } from "../../../lib/LangContext";
 import BlogPostContent from "../../../components/BlogPostContent";
 import { SITE, SITE_URL } from "../../../lib/site";
@@ -14,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const post = POSTS.find((p) => p.slug === slug);
   if (!post) return {};
   return {
-    title: `${post.title} · Mickael Vasquez`,
+    title: post.title,
     description: post.excerpt,
     alternates: {
       canonical: `/es/blog/${slug}`,
@@ -75,7 +76,7 @@ export default async function BlogPostPageEs({ params }: { params: Promise<{ slu
           dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
         />
       </head>
-      <BlogPostContent post={post} />
+      <BlogPostContent post={{ ...post, body: post.body ? sanitizePostHtml(post.body) : undefined }} />
     </LangProvider>
   );
 }
