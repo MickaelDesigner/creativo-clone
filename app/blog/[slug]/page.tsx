@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { POSTS } from "../../lib/posts";
+import { sanitizePostHtml } from "../../lib/sanitize-post-html";
 import { LangProvider } from "../../lib/LangContext";
 import BlogPostContent from "../../components/BlogPostContent";
 import { SITE, SITE_URL } from "../../lib/site";
@@ -75,7 +76,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
         />
       </head>
-      <BlogPostContent post={post} />
+      <BlogPostContent post={{ ...post, body: post.body ? sanitizePostHtml(post.body) : undefined }} />
     </LangProvider>
   );
 }
