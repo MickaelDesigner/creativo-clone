@@ -4,7 +4,7 @@ import AboutContent from "../components/AboutContent";
 import { SITE } from "../lib/site";
 
 export const metadata: Metadata = {
-  title: "About — Mickael Vasquez · Creative Tech Designer",
+  title: { absolute: "About — Mickael Vasquez · Creative Tech Designer" },
   description:
     "Mickael's story: 15 years across advertising, design and engineering. Building brand systems, AI-driven products and modern web experiences.",
   alternates: {

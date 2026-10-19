@@ -14,7 +14,7 @@ functional checks (build, lint, tsc, API probes, node sanitizer probe, curl, scr
   - Checks: API probes with RESEND_API_KEY= empty; Playwright click on form.
 - [x] T3 Sanitize blog HTML with sanitize-html (allowlist from real posts). Route: inline.
   - Checks: node probe of helper; before/after screenshots ES + EN post.
-- [ ] T4 Project detail SEO + duplicated title suffix. Route: inline.
+- [x] T4 Project detail SEO + duplicated title suffix. Route: inline.
   - Checks: curl built HTML title + canonical for 3 projects; titles of /projects /about /contact /blog.
 
 ## Progress / evidence
@@ -27,3 +27,7 @@ functional checks (build, lint, tsc, API probes, node sanitizer probe, curl, scr
 - T3 done: sanitize-html + @types/sanitize-html; helper app/lib/sanitize-post-html.ts (allowlist from real posts: h2/h3, p, hr, strong, em, ul/ol/li, blockquote, pre/code, table family; plus a/img/figure/h1-h6/br; rel noopener noreferrer on external links; schemes http/https/mailto; img http/https). Applied at the sink in app/blog/[slug]/page.tsx (server component).
   FINDINGS: (1) the Supabase legacy anon key is disabled ("Legacy API keys are disabled", 2026-08-12), so content_posts could not be read: DB post markup is UNVERIFIED, allowlist is derived from the 7 static posts in app/lib/posts.ts. (2) Pages render only the static POSTS (repo code), never the DB body; fetchPostBySlug/fetchPublishedPosts feed only /og and /carousel. (3) Sanitizing inside posts.ts (even via dynamic import) put sanitize-html in a client chunk because BlogContent (client) imports posts.ts; reverted, verified no client chunk contains it. (4) /es/blog/[slug] (app/es, outside allowed surface) still renders post.body unsanitized; trusted static content today.
   Checks: node probe: script, img onerror, javascript: href, iframe, style, svg onload, on* attrs stripped; headings/lists/links/code/table/hr preserved (only `<hr>` -> `<hr />`). 7 posts x 2 routes: body HTML identical before/after except `->>` in a code block of stack-saas-ia-2026 serialized as `-&gt;&gt;` (same rendered text). Full-page screenshots EN pixel-identical (bbox None); ES: screenshot of /blog/stack-saas-ia-2026 inspected visually (renders correctly); the ES "before" shot was taken on /es/ route so a pixel diff is not valid, DOM body comparison is the evidence.
+- T3 commit: 7495261.
+- T4 done: new layout.tsx (metadata) for /projects/nexus-crm, /vitrina, /portfolio-web (pages are "use client", so metadata lives in layouts, same pattern as the orphan projects): own title, description, self canonical, hreflang, OG. Duplicate suffix fixed with `title: { absolute: <original text> }` on /projects, /about, /contact (layout), /blog (layout); copy unchanged.
+  Checks (curl on `next start` build): each of the 3 projects has own <title>, description, canonical https://mickaelvasquez.tech/projects/<slug>, og:url; the 4 listed pages now emit a single suffix. tsc, lint (0 errors, 3 pre-existing warnings), build OK.
+  Out of scope, noticed: app/es/** titles still carry the literal "· Mickael Vasquez" plus the template (e.g. /es/contact, /es/projects/*, /es/about); orphan project layouts also double the suffix.

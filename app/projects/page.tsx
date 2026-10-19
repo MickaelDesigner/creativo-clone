@@ -4,7 +4,7 @@ import ProjectsIndexContent from "../components/ProjectsIndexContent";
 import { SITE } from "../lib/site";
 
 export const metadata: Metadata = {
-  title: "Projects — Selected Work · Mickael Vasquez",
+  title: { absolute: "Projects — Selected Work · Mickael Vasquez" },
   description:
     "Case studies from Mickael Vasquez — Nexus CRM, Vitrina Digital, Portfolio Web. Brand, product engineering, and modern web experiences.",
   alternates: {
