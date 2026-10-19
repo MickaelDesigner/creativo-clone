@@ -85,6 +85,8 @@ function ContactPageInner() {
   const [budget, setBudget]     = useState("");
   const [status, setStatus]     = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  // Form-mount time: the API drops submissions faster than a human could fill the form.
+  const [mountedAt] = useState(() => Date.now());
 
   useGSAP(() => {
     const tl = gsap.timeline({ delay: 0.2 });
@@ -114,24 +116,21 @@ function ContactPageInner() {
           ...data,
           service,
           budget: budget || "",
+          ts: mountedAt,
         }),
       });
 
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        throw new Error(data.detail || "Network error");
-      }
+      if (!res.ok) throw new Error("request failed");
       setStatus("success");
       form.reset();
       setService(SERVICES[0]);
       setBudget("");
-    } catch (err) {
+    } catch {
       setStatus("error");
-      const detail = err instanceof Error ? err.message : "";
       setErrorMsg(
         locale === "es"
-          ? `Error: ${detail || "Algo salió mal"}. Escribime a mickael.vc7@gmail.com`
-          : `Error: ${detail || "Something went wrong"}. Email me at mickael.vc7@gmail.com`
+          ? "No pudimos enviar tu mensaje. Revisá los datos e intentá de nuevo, o escribime a mickael.vc7@gmail.com"
+          : "We couldn't send your message. Check your details and try again, or email me at mickael.vc7@gmail.com"
       );
       setTimeout(() => setStatus("idle"), 10000);
     }
@@ -294,6 +293,11 @@ function ContactPageInner() {
                 </div>
 
                 <Field name="email" label={t.contact.labelEmail} type="email" placeholder={t.contact.phEmail} required />
+
+                {/* Honeypot: hidden from people and assistive tech, bots fill it */}
+                <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
+                  <input type="text" name="website" tabIndex={-1} autoComplete="off" defaultValue="" />
+                </div>
 
                 {/* Service chips */}
                 <div className="flex flex-col gap-3">
